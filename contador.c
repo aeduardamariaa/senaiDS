@@ -1,4 +1,4 @@
-/*7) Contar quantos dígitos tem um número inteiro positivo.*/
+/*7) Contar quantos dígitos tem um número inteiro positivo.*///
 
 #include <stdio.h> 
 
