@@ -5,19 +5,22 @@ usuário.*/
 
 int tabuada(int num, int i){
 
-    if (i == 10){
-        return (1);
+    if (i < 11){
+        return (num * i);
     }else{
-        printf("\n%i X %i = %i", num, i+1, (num*(i+1)));
-        return tabuada(num, i+1);
+        int result = num * tabuada(num, i+1);
+        return result;
     }
 }
 int main(){
-    int a;
-    int i = 0;
+    int num;
 
     printf("Informe um número para saber a tabuada: ");
-    scanf("%i", &a);
+    scanf("%i", &num);
+
+    for (int i = 0; i <=10; i++)
+    {
+        printf("\n%i X %i = %i", num, i, tabuada(num, i));
+    }
     
-    tabuada(a, i);
 }
