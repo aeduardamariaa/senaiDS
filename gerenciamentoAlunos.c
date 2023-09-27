@@ -1,5 +1,5 @@
-/*FaÁa um programa para uma escola chamada IANES que far· todo o
-gerenciamento de alunos, cursos, e mÈdia de alunos. Utilize um arquivo
+/*Fa√ßa um programa para uma escola chamada IANES que far√° todo o
+gerenciamento de alunos, cursos, e m√©dia de alunos. Utilize um arquivo
 de texto para fazer esse gerenciamento.(Escrita e leitura)*/
 
 #include <stdio.h>
@@ -8,7 +8,7 @@ void cadastrarNovoAlunos(FILE * arquivoAlunos, char * nome, char * curso, float 
 {
 	fprintf(arquivoAlunos,"Nome: %s\n", nome);
 	fprintf(arquivoAlunos, "Curso: %s\n", curso);
-	fprintf(arquivoAlunos, "MÈdia: %S\n", media);
+	fprintf(arquivoAlunos, "M√©dia: %.2f", media);
 }
 
 void lerArquivoAlunos(FILE * arquivoAlunos)
@@ -17,7 +17,7 @@ void lerArquivoAlunos(FILE * arquivoAlunos)
 	
 	while(fgets(linha, sizeof(linha), arquivoAlunos)!= NULL)
 	{
-		printf("%s", linha);
+		printf(" %s", linha);
 	}
 }
 
@@ -26,24 +26,25 @@ int main(void)
 	
 	char nome[50];
 	char curso[50];
-	float media;
+	float media = 0;
 	
 	FILE * arquivoAlunos;
 	
-	arquivoAlunos = fopen("alunos.txt", "a");
+	arquivoAlunos = fopen("alunos.txt", "w");
 	
 	printf("\nInforme o nome do aluno para cadastrar: ");
 	scanf(" %s", nome);
-	
-	printf("\nInforme o curso do alunos: ");
+
+    printf("\nInforme o curso do alunos: ");
 	scanf(" %s", curso);
+
+    printf("\nInforme a media do alunos: ");
+	scanf("%f", &media);
 	
-	printf("\nInforme a media do alunos: ");
-	scanf(" %s", &media);
+	cadastrarNovoAlunos(arquivoAlunos, nome, curso, &media);
+
 	
-	cadastrarNovoAluno(arquivoAlunos, nome, curso, media);
-	
-	lerArquicoAlunos(arquivoAlunos);	
+	lerArquivoAlunos(arquivoAlunos);	
 	
 	fclose(arquivoAlunos);	
 	
