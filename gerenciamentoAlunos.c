@@ -6,19 +6,28 @@ de texto para fazer esse gerenciamento.(Escrita e leitura)*/
 
 void cadastrarNovoAlunos(FILE * arquivoAlunos, char * nome, char * curso, float * media)
 {
-	fprintf(arquivoAlunos,"Nome: %s\n", nome);
-	fprintf(arquivoAlunos, "Curso: %s\n", curso);
-	fprintf(arquivoAlunos, "Média: %.2f", media);
+	fprintf(arquivoAlunos,"\nNome: %s\nCurso: %s\nMedia: %.2f\n\n", nome, curso, *media);
 }
 
-void lerArquivoAlunos(FILE * arquivoAlunos)
+void lerArquivoAlunos(const char *nomeArquivo)
 {
-	char linha[200];
-	
-	while(fgets(linha, sizeof(linha), arquivoAlunos)!= NULL)
-	{
-		printf(" %s", linha);
-	}
+    FILE *arquivoAlunos;
+    char linha[200];
+
+    arquivoAlunos = fopen(nomeArquivo, "r"); // Abra o arquivo em modo de leitura
+
+    if (arquivoAlunos == NULL)
+    {
+        printf("Erro ao abrir o arquivo de alunos.\n");
+        return;
+    }
+
+    while (fgets(linha, sizeof(linha), arquivoAlunos) != NULL)
+    {
+        printf("%s", linha);
+    }
+
+    fclose(arquivoAlunos);
 }
 
 int main(void)
@@ -43,8 +52,7 @@ int main(void)
 	
 	cadastrarNovoAlunos(arquivoAlunos, nome, curso, &media);
 
-	
-	lerArquivoAlunos(arquivoAlunos);	
+	lerArquivoAlunos("alunos.txt");	
 	
 	fclose(arquivoAlunos);	
 	
