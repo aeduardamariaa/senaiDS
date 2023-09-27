@@ -30,7 +30,7 @@ int main(void)
 	
 	FILE * arquivoAlunos;
 	
-	arquivoAlunos = fopen("alunos.txt", "w");
+	arquivoAlunos = fopen("alunos.txt", "a");
 	
 	printf("\nInforme o nome do aluno para cadastrar: ");
 	scanf(" %s", nome);
