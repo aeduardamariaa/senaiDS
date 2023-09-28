@@ -20,7 +20,7 @@ void ordenar(int  * ptr)
             if (*(ptr+j) > *(ptr+j+1))
             {
                 temp = *(ptr+j+1);
-                *(ptr+j+1) = (ptr+j);
+                *(ptr+j+1) = *(ptr+j);
                 *(ptr+j) = temp;
             }
         }
