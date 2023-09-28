@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 void ordenar(int * ptr);
+void imprimir(int * ptr);
 
 int main()
 {
@@ -8,6 +9,7 @@ int main()
     int * ptr = vetor;
 
     ordenar(ptr);
+    imprimir(ptr);
 }
 
 void ordenar(int  * ptr)
@@ -25,6 +27,9 @@ void ordenar(int  * ptr)
             }
         }
     }
+}
+void imprimir(int * ptr)
+{
     for (int i = 0; i < 3; i++)
     {
         printf("%i ", *(ptr+i));
