@@ -1,4 +1,4 @@
-/*1- Receba valores em cada posiÁ„o de uma matriz e identifique a posiÁ„o e o valor que est· o maior deles.*/
+/*1- Receba valores em cada posi√ß√£o de uma matriz e identifique a posi√ß√£o e o valor que est√° o maior deles.*/
 
 #include <stdio.h>
 #define LINHA 2
