@@ -1,4 +1,4 @@
-/*2- Leia duas matrizes 4 x 4 e escreva uma terceira com os maiores valores de cada posiçao das matrizes lidas.  */
+/*2- Leia duas matrizes 4 x 4 e escreva uma terceira com os maiores valores de cada posiÃ§ao das matrizes lidas.  */
 
 #include <stdio.h>
 #define LINHA 4
@@ -69,7 +69,7 @@ int main(void)
 	imprimeMatriz(mat2);
 	
 	matrizMaior(mat1, mat2, mat_maior);
-	printf("\nMatriz com os maiores números: \n");
+	printf("\nMatriz com os maiores nÃºmeros: \n");
 	imprimeMatriz(mat_maior);
 	
 }
