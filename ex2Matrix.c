@@ -38,19 +38,18 @@ void matrizMaior(int mat1[LINHA][COLUNA], int mat2[LINHA][COLUNA], int mat_maior
     {
         for (int j = 0; j < COLUNA; j++)
         {
-            if(mat1[i][j] > mat2[i][j])
-            {
-            	mat_maior[i][j] = mat1[i][j];
-            	
-			}
-			else if(mat2[i][j] > mat1[i][j])
-			{
-				mat_maior[i][j] = mat2[i][j];
-			}
-			else
-			{
-				mat_maior[i][j] = mat1[i][j];
-			}
+        	if(mat1[i][j] > mat2[i][j])
+            	{
+            		mat_maior[i][j] = mat1[i][j];
+		}
+		else if(mat2[i][j] > mat1[i][j])
+		{
+			mat_maior[i][j] = mat2[i][j];
+		}
+		else
+		{
+			mat_maior[i][j] = mat1[i][j];
+		}
         }
     }
 }
