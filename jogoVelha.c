@@ -25,61 +25,83 @@ void pedirLocal(int * linha, int * coluna)
     scanf("%d", coluna);
 }
 
+int ganhou(char mat[3][3], char jogador)
+{
+    if ((mat[0][0] == mat[0][1] && mat[0][0] == mat[0][2]) && (mat[0][0] != '.' && mat[0][1] != '.' && mat[0][2] != '.'))
+    {
+        return 1; 
+    }
+    else if ((mat[1][0] == mat[1][1] && mat[1][0] == mat[1][2]) && (mat[1][0] != '.' && mat[1][1] != '.' && mat[1][2] != '.'))
+    {
+        return 1; 
+    }
+    else if ((mat[2][0] == mat[2][1] && mat[2][0] == mat[2][2]) && (mat[2][0] != '.' && mat[2][1] != '.' && mat[2][2] != '.'))
+    {
+        return 1; 
+    }
+    else if ((mat[0][0] == mat[1][0] && mat[0][0] == mat[2][0]) && (mat[0][0] != '.' && mat[1][0] != '.' && mat[2][0] != '.'))
+    {
+        return 1; 
+    }
+    else if ((mat[0][1] == mat[1][1] && mat[0][1] == mat[2][1]) && (mat[0][1] != '.' && mat[1][1] != '.' && mat[2][1] != '.'))
+    {
+        return 1;
+    }
+    else if ((mat[0][2] == mat[1][2] && mat[0][2] == mat[2][2]) && (mat[0][2] != '.' && mat[1][2] != '.' && mat[2][2] != '.'))
+    {
+        return 1; 
+    }
+    else if ((mat[0][0] == mat[1][1] && mat[0][0] == mat[2][2]) && (mat[0][0] != '.' && mat[1][1] != '.' && mat[2][2] != '.'))
+    {
+        return 1; 
+    }
+    else if ((mat[0][2] == mat[1][1] && mat[0][2] == mat[2][0]) && (mat[0][2] != '.' && mat[1][1] != '.' && mat[2][0] != '.'))
+    {
+        return 1; 
+    }
+    else
+    {
+        return 0;
+    }
+}
+
 int main(void)
 {
     char mat[3][3] = { {'.', '.', '.'}, {'.', '.', '.'}, {'.', '.', '.'} };
     int linha = 0, coluna = 0, cont = 0;
+    char jogador = 'X';
 
-    while (cont<10)
+    while (cont<9)
     {  
-        //jogador X
         imprimeTabuleiro(mat);
-        pedirLocal(&linha, &coluna);
-        mat[linha][coluna] = 'x';
-        ganhou(mat);
 
-        if(ganhou(mat) == 1)
+        pedirLocal(&linha, &coluna);
+        
+        if (mat[linha][coluna] == '.')
         {
+            mat[linha][coluna] = jogador;
+            cont++;
+        }
+        else
+        {
+            printf("\nPosição já ocupada, tente novamente!");
+            continue;
+        }
+
+        if (ganhou(mat, jogador))
+        {
+            printf("\nO jogador %c venceu!\n", jogador);
             break;
         }
 
-        //jogador O
+        jogador = (jogador == 'X')? 'O' : 'X' ;
+
+    }
+    if (cont == 9)
+    {
         imprimeTabuleiro(mat);
-        pedirLocal(&linha, &coluna);
-        mat[linha][coluna] = 'O';
-        ganhou(mat);
-
-        if(ganhou(mat) == 1)
-        {
-            break;
-        }
-
-        printf("retorno : %d", ganhou(mat));
-
-        cont = cont + 1;
+        printf("\n\nEmpate!\n");
     }
-}
-int ganhou(char mat[3][3])
-{
-    if ((mat[0][0] == mat[0][1]) && mat[0][0] == mat[0][2])
-    {
-        return 1;
-    }else if (mat[1][0] == mat[1][1] && mat[1][0] == mat[1][2])
-    {
-        return 1;
-    }else if (mat[2][0] == mat[2][1] && mat[2][0] == mat[2][2])
-    {
-        return 1;
-    }else if (mat[0][0] == mat[1][0] && mat[0][0] == mat[2][0])
-    {
-        return 1;
-    }else if (mat[0][1] == mat[1][1] && mat[0][1] == mat[2][1])
-    {
-        return 1;
-    }else if (mat[0][2] == mat[1][2] && mat[0][2] == mat[2][2])
-    {
-        return 1;
-    }else{
-        return 0;
-    }
+
+    return 0;
 }
