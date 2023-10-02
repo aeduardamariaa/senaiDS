@@ -6,7 +6,7 @@ void setores(){
 	printf("********SETORES********\n\n");
 	printf("1 - LIMPEZA\n");
 	printf("2 - PADARIA\n");
-	printf("3 - AÇOUGUE\n");
+	printf("3 - AÃ‡OUGUE\n");
 	printf("4 - FRUTARIA\n");
 	printf("0 - SAIR\n");
 }
@@ -19,13 +19,13 @@ void limpeza(){
 }
 
 void padaria(){
-	printf("e - Pão R$ 7.10\n");
+	printf("e - PÃ£o R$ 7.10\n");
 	printf("f - Cueca virada R$ 5.46\n");
 }
 
 void acougue(){
 	printf("g - Picanha R$ 38.60\n");
-	printf("h - Linguiça R$ 18.60\n");
+	printf("h - LinguiÃ§a R$ 18.60\n");
 }
 
 void frutaria(){
@@ -49,7 +49,7 @@ int main(){
 		exit(1);
 	}else if (op == 1){
 		limpeza();
-		printf("\n\nO que você deseja comprar?\n");
+		printf("\n\nO que vocÃª deseja comprar?\n");
 		scanf("%c", &item);
 	}else if(op == 2){
 		padaria();
@@ -58,7 +58,7 @@ int main(){
 	}else if(op == 4){
 		frutaria();
 	}else{
-		printf("Entrada inválida");
+		printf("Entrada invÃ¡lida");
 	}
 	
 }
