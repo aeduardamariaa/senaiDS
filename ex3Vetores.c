@@ -3,12 +3,14 @@ de 10 posições contendo o gabarito de respostas que podem ser a, b, c ou d. Se
 com o gabarito e emitir um vetor denominado resultado, contendo a pontuação correspondente a cada aluno.*/
 
 #include<stdio.h>
+#include <stdlib.h>
 
 int main()
 {
     char matriz[5][10];
     char letra[] = {'a', 'b', 'c','d'};
     char gabarito[] = {'a', 'b', 'd', 'c', 'b', 'c', 'd', 'd', 'c', 'b'};
+    char nome[5][10] = {"Jessica", "Maria", "Matheus", "João", "Nicolas"};
     int sorteador=0, nota=0;
     int resultado[5];
 
@@ -22,8 +24,10 @@ int main()
     }
 
     for (int i = 0; i < 5; i++)
-    {
+    {   
+        
         printf("\n");
+        printf(" %s  ", nome[i]);
         for (int j = 0; j < 10; j++)
         {
             printf("[ %c ]", matriz[i][j]);
