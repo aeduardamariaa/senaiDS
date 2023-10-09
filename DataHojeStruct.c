@@ -17,41 +17,54 @@ typedef struct
     int hora;
     int minutos;
     int segundos;
+
+}Horario;
+
+typedef struct{
     int dia;
     int mes;
     int ano;
-
 }Data;
 
-void preencher(Data * hoje)
+typedef struct
+{
+    Horario agora;
+    Data hoje;
+    char desc_compromisso[50];
+}Compromisso;
+
+void preencher(Compromisso * evento)
 {
     printf("\nInforme a hora:");
-    scanf("%i", &hoje -> hora);
+    scanf("%i", &evento -> agora.hora);
     printf("\nInforme a minutos:");
-    scanf("%i", &hoje -> minutos);
+    scanf("%i", &evento -> agora.minutos);
     printf("\nInforme a segundos:");
-    scanf("%i", &hoje -> segundos);
-    printf("\nInforme a dia:");
-    scanf("%i", &hoje -> dia);
-    printf("\nInforme a mes:");
-    scanf("%i", &hoje -> mes);
-    printf("\nInforme a ano:");
-    scanf("%i", &hoje -> ano);
+    scanf("%i", &evento -> agora.segundos);
+    printf("\nInforme o dia:");
+    scanf("%i", &evento -> hoje.dia);
+    printf("\nInforme o mes:");
+    scanf("%i", &evento -> hoje.mes);
+    printf("\nInforme o ano:");
+    scanf("%i", &evento -> hoje.ano);
+    printf("\nInforme o compromisso:");
+    scanf(" %s", evento -> desc_compromisso);
 }
 
-void imprime(Data hoje)
+void imprime(Compromisso evento)
 {
-    printf("\n\n%d:%d:%d\t", hoje.hora, hoje.minutos, hoje.segundos);
-    printf("%d/%d/%d\n", hoje.dia, hoje.mes, hoje.ano);
+    printf("\n\n%d:%d:%d\t", evento.agora.hora, evento.agora.minutos, evento.agora.segundos);
+    printf("%d/%d/%d\n", evento.hoje.dia, evento.hoje.mes, evento.hoje.ano);
+    printf("Descrição: %s", evento.desc_compromisso);
 }
 
 
 int main(void)
 {       
-    Data hoje;
+    Compromisso evento;
 
-    preencher(&hoje);
+    preencher(&evento);
     system("cls");
-    imprime(hoje);
+    imprime(evento);
 
 }
