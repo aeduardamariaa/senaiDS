@@ -55,7 +55,7 @@ void imprime(Compromisso evento)
 {
     printf("\n\n%d:%d:%d\t", evento.agora.hora, evento.agora.minutos, evento.agora.segundos);
     printf("%d/%d/%d\n", evento.hoje.dia, evento.hoje.mes, evento.hoje.ano);
-    printf("Descrição: %s", evento.desc_compromisso);
+    printf("Descrição: %s", evento.desc_compromisso);//arrumar impressão do compromisso
 }
 
 
