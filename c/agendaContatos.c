@@ -45,7 +45,7 @@ void menu()
 void buscaArquivo(Contato agenda)
 { 
     FILE * arquivo;
-    arquivo = fopen("Agenda.txt", "a+");
+    arquivo = fopen("Agenda.txt", "r");
     char find[50];
     int encontrado = 0;
 
@@ -69,7 +69,7 @@ void buscaArquivo(Contato agenda)
 void imprimeArquivo()
 { 
     FILE * arquivo;
-    arquivo = fopen("Agenda.txt", "a+");
+    arquivo = fopen("Agenda.txt", "r");
     char * linha = (char*) malloc(1000 * sizeof(char));
 
     //retorna todo o arquivo numa string
