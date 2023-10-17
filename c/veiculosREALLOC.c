@@ -53,10 +53,11 @@ void imprimeVeiculo(Veiculo * veiculos, int quantidade_carros)
 void escreveArquivo(Veiculo * veiculos, int quantidade_carros, int * x)
 {
     FILE * arquivo;
-    arquivo = fopen("Agenda.txt", "a+");
-    for (int i = x; i < quantidade_carros; i++)
+    arquivo = fopen("veiculos.txt", "a+");
+
+    for (int i = 0; i < quantidade_carros; i++)
     {
-        fprintf(arquivo, "%s\t%s\t%s\t%i\t%f", veiculos[i].modelo, veiculos[i].fabricante, veiculos[i].cor,veiculos[i].ano, veiculos[i].valor);
+        fprintf(arquivo, "%s\t%s\t%s\t%i\t%f\n\n", veiculos[i].modelo, veiculos[i].fabricante, veiculos[i].cor,veiculos[i].ano, veiculos[i].valor);
     }
     fclose(arquivo);
 }
